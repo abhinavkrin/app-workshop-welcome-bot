@@ -3,20 +3,13 @@ import { ISlashCommand, SlashCommandContext } from "@rocket.chat/apps-engine/def
 import { IBlock } from "@rocket.chat/apps-engine/definition/uikit";
 
 export class GetInfo implements ISlashCommand {
-    public command = "getinfo-abhinav";
+    public command = "getinfo-rc";
     public i18nParamsExample = "getinfo";
     public i18nDescription = "getinfo";
     public providesPreview = false;
 
     async executor(context: SlashCommandContext, read: IRead, modify: IModify, http: IHttp, persis: IPersistence): Promise<void> {
-        const message = modify.getCreator()
-            .startMessage()
-            .setRoom(context.getRoom())
-            .setText(plainText);
 
-        await modify
-            .getNotifier()
-            .notifyUser(context.getSender(), message.getMessage());
     }
 }
 
