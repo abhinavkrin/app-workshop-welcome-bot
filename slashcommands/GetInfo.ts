@@ -3,7 +3,7 @@ import { ISlashCommand, SlashCommandContext } from "@rocket.chat/apps-engine/def
 import { IBlock } from "@rocket.chat/apps-engine/definition/uikit";
 
 export class GetInfo implements ISlashCommand {
-    public command = "getinfo-rc";
+    public command = "getinfo-YOURNAME";
     public i18nParamsExample = "getinfo";
     public i18nDescription = "getinfo";
     public providesPreview = false;

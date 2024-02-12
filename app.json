@@ -1,18 +1,18 @@
 {
-    "id": "b0d37354-5446-4ec3-a977-bbf3190dd1c3",
-    "version": "0.0.1",
-    "requiredApiVersion": "^1.19.0",
-    "iconFile": "icon.png",
-    "author": {
-        "name": "Mario",
-        "homepage": "NA",
-        "support": "NA"
-    },
-    "name": "WelcomeBot",
-    "nameSlug": "welcomebot",
-    "classFile": "WelcomeBotApp.ts",
-    "description": "The demo app for new Rocketeers",
-    "implements": [
-        "IPostRoomUserJoined"
-    ]
+  "id": "b0d37354-5446-4ec3-a977-bbf3190dd1c3",
+  "version": "0.0.1",
+  "requiredApiVersion": "^1.19.0",
+  "iconFile": "icon.png",
+  "author": {
+    "name": "Mario",
+    "homepage": "NA",
+    "support": "NA"
+  },
+  "name": "WelcomeBot",
+  "nameSlug": "welcomebot",
+  "classFile": "WelcomeBotApp.ts",
+  "description": "The demo app for new Rocketeers",
+  "implements": [
+    "IPostRoomUserJoined"
+  ]
 }
