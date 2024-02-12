@@ -61,12 +61,16 @@ Before you begin, ensure you have the following:
    ```
    Username and password will be provided during workshop
 ## FAQ
-**1. Where can I find the final code?**
+### **1. Where can I find the final code?** <br>
 The final code could be found in the `final` branch
-**2. When will the Username and Password for the test server be shared?**
+
+### **2. When will the Username and Password for the test server be shared?**
 The credentials will be shared during workshop
-See you in the workshop! Don't forget to fill feedback form which will be provided at the end of the workshop.
-**3. What if I encounter errors during setup?**
+
+### **3. What if I encounter errors during setup?**
 Please share your issue in the [Events Channel](https://open.rocket.chat/channel/events-and-meet-ups).
-**4. Is setting up the project mandatory?**
+
+### **4. Is setting up the project mandatory?**
 Yes. For best experience during the workshop, It is highly recommended that you have set up the starter code.
+
+See you in the workshop! Don't forget to fill feedback form which will be provided at the end of the workshop.
