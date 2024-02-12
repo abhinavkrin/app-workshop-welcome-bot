@@ -1,0 +1,75 @@
+const fs = require('fs');
+const path = require('path');
+const { exec, spawn } = require('child_process');
+const { v4: uuidv4 } = require('uuid');
+const readline = require('readline');
+
+// Create readline interface for user input
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+// Function to install npm dependencies
+function installDependencies() {
+  return new Promise((resolve, reject) => {
+    console.log('Installing npm dependencies...');
+    exec('npm install', (error, stdout, stderr) => {
+      if (error) {
+        console.error('Error installing npm dependencies:', stderr);
+        reject(stderr);
+      } else {
+        console.log(stdout);
+        resolve(stdout);
+      }
+    });
+  });
+}
+
+// Function to generate and set UUID in app.json
+function setUUIDInAppJson() {
+  return new Promise((resolve, reject) => {
+    const appJsonPath = path.join(__dirname, 'app.json');
+    const appJsonContent = fs.readFileSync(appJsonPath, 'utf8');
+    let appConfig = JSON.parse(appJsonContent);
+
+    const newUUID = uuidv4();
+    appConfig.id = newUUID;
+    fs.writeFileSync(appJsonPath, JSON.stringify(appConfig, null, 2));
+
+    console.log(`Set UUID in app.json: ${newUUID}`);
+    resolve(newUUID);
+  });
+}
+
+// Function to update GetInfo.ts with unique identifier
+function updateGetInfoFile(uniqueName) {
+  return new Promise((resolve, reject) => {
+    const getInfoPath = path.join(__dirname, 'slashcommands/GetInfo.ts');
+    let getInfoContent = fs.readFileSync(getInfoPath, 'utf8');
+    getInfoContent = getInfoContent.replace(/getinfo-.+/g, `getinfo-${uniqueName}";`);
+    fs.writeFileSync(getInfoPath, getInfoContent);
+
+    console.log(`Updated GetInfo.ts with unique identifier: ${uniqueName}`);
+    resolve();
+  });
+}
+
+// Main function to run setup
+async function runSetup() {
+  try {
+    await installDependencies();
+    await setUUIDInAppJson();
+
+    rl.question('Complete your unique name for the GetInfo command: getinfo-', async (uniqueName) => {
+      await updateGetInfoFile(uniqueName);
+      rl.close();
+      console.log('Setup completed successfully.\n');
+      require('./.appwrkshpcheck')
+    });
+  } catch (error) {
+    console.error('Setup failed:', error);
+  }
+}
+
+runSetup();
