@@ -9,6 +9,7 @@ Before you begin, ensure you have the following:
 - Rocket.Chat server set up and running. We will provide a server during the workshop.
 - Linux OS or WSL with Node.js installed.
 - The Rocket.Chat Apps CLI installed. You can install it using npm with the command `npm install -g @rocket.chat/apps-cli`.
+- The starter code is already set up. Follow the below steps to set up the starter code.
 
 ## Steps to Set Up this Rocket.Chat App
 
