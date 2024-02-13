@@ -6,6 +6,7 @@
         "typescript": "^4.0.5"
     },
     "scripts": {
-        "setup": "node .appwrkshpsetup"
+        "setup": "node .appwrkshpsetup",
+        "check-setup": "node .appwrkshpcheck"
     }
 }
