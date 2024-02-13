@@ -16,23 +16,12 @@ Before you begin, ensure you have the following:
     ```
     git clone https://github.com/abhinavkrin/app-workshop-welcome-bot.git
     ```
-Now you can follow either `automatic` or `manual` setup process.
-
-### Automatic 
-We have added an automated script to set up this project. 
-```
-npm run setup
-```
-**However, I highly recommend to read the manual steps to understand what is happening in the script.**
-
-### Manual
-
-1. **Install the dependencies**:
+2. **Install the dependencies**:
     ```
     npm install
     ```
-2. **Edit `app.json`**:
-   Every Rocket.Chat app has a unique ID. To set this, you will need to replace the placeholder in the `id` field of your `app.json` file with a unique UUID.
+3. **Edit `app.json`**:
+   Every Rocket.Chat app has a unique ID. To set this, you will need to replace the value in the `id` field of your `app.json` file with a unique UUID.
    
    - Obtain a UUID from [UUID Generator](https://www.uuidgenerator.net/version4) and replace the `id` field in your `app.json` with this UUID.
    
@@ -46,9 +35,9 @@ npm run setup
    }
    ```
    
-   Replace `YOUR-UNIQUE-APP-ID` with the UUID you obtained.
+   Replace `YOUR-UNIQUE-APP-ID` with the UUID you obtained. As a result each of you will have an app with unique app id.
 
-3. **Edit `GetInfo.ts`**:
+4. **Edit `GetInfo.ts`**:
     Since, each slash command is unique, we cannot havemore than one slash command with same command string. Edit `slashCommands/GetInfo.ts`
     ```
     export class GetInfo implements ISlashCommand {
@@ -62,11 +51,15 @@ npm run setup
     ```
     Replace `YOURNAME` with your name. As a result, each one of you will will have a unique slash command.
 
-4. **Check Setup**
+5. **Check Setup and Confirm Seat**
 Run a check if everything has been set up correctly:
 ```
 npm run check-setup
 ```
+If everything is set up correctly you can see a message like this:
+![Screenshot from 2024-02-13 23-41-08](https://github.com/abhinavkrin/app-workshop-welcome-bot/assets/15830206/0065d085-8b9c-408a-b5ac-4df7e85c430f)
+
+Visit the link and fill the form to confirm your seat. 🥳 
 
 ### Develop Your App: (During Workshop)
    With the project starter code configured, follow us along in the workshop to develop the app.
