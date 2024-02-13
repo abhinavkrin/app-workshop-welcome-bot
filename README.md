@@ -9,6 +9,7 @@ Before you begin, ensure you have the following:
 - Rocket.Chat server set up and running. We will provide a server during the workshop.
 - Linux OS or WSL with Node.js installed.
 - The Rocket.Chat Apps CLI installed. You can install it using npm with the command `npm install -g @rocket.chat/apps-cli`.
+- The starter code is already set up. Follow the below steps to set up the starter code.
 
 ## Steps to Set Up this Rocket.Chat App
 
@@ -51,13 +52,26 @@ Before you begin, ensure you have the following:
     ```
     Replace `YOURNAME` with your name. As a result, each one of you will will have a unique slash command.
 
-5. **Develop Your App**:
+5. **Develop Your App**: (During Workshop)
    With the project starter code configured, follow us along in the workshop to develop the app.
 
-6. **Deploy Your App**:
+6. **Deploy Your App**: (During Workshop)
    After developing your app, you can deploy it to your Rocket.Chat server for testing and use. Use the Rocket.Chat Apps CLI to package and deploy your app:
    ```
-   rc-apps deploy --url <url-of-rc-server> --username <your-email/username> --password <your-password>
+   rc-apps deploy --url <url-of-rc-server> --username <username> --password <your-password>
    ```
+   Username and password will be provided during workshop
+## FAQ
+### **1. Where can I find the final code?** <br>
+The final code could be found in the `final` branch
+
+### **2. When will the Username and Password for the test server be shared?**
+The credentials will be shared during workshop
+
+### **3. What if I encounter errors during setup?**
+Please share your issue in the [Events Channel](https://open.rocket.chat/channel/events-and-meet-ups).
+
+### **4. Is setting up the project mandatory?**
+Yes. For best experience during the workshop, It is highly recommended that you have set up the starter code.
 
 See you in the workshop! Don't forget to fill feedback form which will be provided at the end of the workshop.
