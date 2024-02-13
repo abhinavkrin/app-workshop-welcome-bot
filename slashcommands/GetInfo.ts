@@ -9,7 +9,14 @@ export class GetInfo implements ISlashCommand {
     public providesPreview = false;
 
     async executor(context: SlashCommandContext, read: IRead, modify: IModify, http: IHttp, persis: IPersistence): Promise<void> {
+        // const message = modify.getCreator()
+        //     .startMessage()
+        //     .setRoom(context.getRoom())
+        //     .setText(plainText);
 
+        // await modify
+        //     .getNotifier()
+        //     .notifyUser(context.getSender(), message.getMessage());
     }
 }
 
