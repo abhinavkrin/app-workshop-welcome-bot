@@ -51,11 +51,14 @@ Before you begin, ensure you have the following:
     ```
     Replace `YOURNAME` with your name. As a result, each one of you will will have a unique slash command.
 
-5. **Check Setup**
+5. **Check Setup and Confirm Seat**
 Run a check if everything has been set up correctly:
 ```
 npm run check-setup
 ```
+If everything is set up correctly you can see a message like this:
+![Screenshot from 2024-02-13 23-41-08](https://github.com/abhinavkrin/app-workshop-welcome-bot/assets/15830206/0065d085-8b9c-408a-b5ac-4df7e85c430f)
+Visit the link and fill the form to confirm your seat. 🥳 
 
 ### Develop Your App: (During Workshop)
    With the project starter code configured, follow us along in the workshop to develop the app.
