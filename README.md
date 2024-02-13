@@ -63,7 +63,7 @@ npm run setup
     Replace `YOURNAME` with your name. As a result, each one of you will will have a unique slash command.
 
 4. **Check Setup**
-To run a check if everything has been set up correctly, run:
+Run a check if everything has been set up correctly:
 ```
 npm run check-setup
 ```
