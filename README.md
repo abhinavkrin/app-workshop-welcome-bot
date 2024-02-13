@@ -12,16 +12,26 @@ Before you begin, ensure you have the following:
 - The starter code is already set up. Follow the below steps to set up the starter code.
 
 ## Steps to Set Up this Rocket.Chat App
-
 1. **Clone this repo**:
     ```
     git clone https://github.com/abhinavkrin/app-workshop-welcome-bot.git
     ```
-2. **Install the dependencies**:
+Now you can follow either `automatic` or `manual` setup process.
+
+### Automatic 
+We have added an automated script to set up this project. 
+```
+npm run setup
+```
+**However, I highly recommend to read the manual steps to understand what is happening in the script.**
+
+### Manual
+
+1. **Install the dependencies**:
     ```
     npm install
     ```
-3. **Edit `app.json`**:
+2. **Edit `app.json`**:
    Every Rocket.Chat app has a unique ID. To set this, you will need to replace the placeholder in the `id` field of your `app.json` file with a unique UUID.
    
    - Obtain a UUID from [UUID Generator](https://www.uuidgenerator.net/version4) and replace the `id` field in your `app.json` with this UUID.
@@ -38,7 +48,7 @@ Before you begin, ensure you have the following:
    
    Replace `YOUR-UNIQUE-APP-ID` with the UUID you obtained.
 
-4. **Edit `GetInfo.ts`**:
+3. **Edit `GetInfo.ts`**:
     Since, each slash command is unique, we cannot havemore than one slash command with same command string. Edit `slashCommands/GetInfo.ts`
     ```
     export class GetInfo implements ISlashCommand {
@@ -52,15 +62,22 @@ Before you begin, ensure you have the following:
     ```
     Replace `YOURNAME` with your name. As a result, each one of you will will have a unique slash command.
 
-5. **Develop Your App**: (During Workshop)
+4. **Check Setup**
+To run a check if everything has been set up correctly, run:
+```
+npm run check-setup
+```
+
+### Develop Your App: (During Workshop)
    With the project starter code configured, follow us along in the workshop to develop the app.
 
-6. **Deploy Your App**: (During Workshop)
+### Deploy Your App: (During Workshop)
    After developing your app, you can deploy it to your Rocket.Chat server for testing and use. Use the Rocket.Chat Apps CLI to package and deploy your app:
    ```
    rc-apps deploy --url <url-of-rc-server> --username <username> --password <your-password>
    ```
    Username and password will be provided during workshop
+
 ## FAQ
 ### **1. Where can I find the final code?** <br>
 The final code could be found in the `final` branch
