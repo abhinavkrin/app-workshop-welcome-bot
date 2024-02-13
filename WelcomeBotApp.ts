@@ -21,31 +21,41 @@ export class WelcomeBotApp extends App implements IPostRoomUserJoined {
         super(info, logger, accessors);
     }
     async executePostRoomUserJoined(context: IRoomUserJoinedContext, read: IRead, http: IHttp, persistence: IPersistence, modify?: IModify | undefined): Promise<void> {
-        // const username = context.joiningUser.username;
-        // const response = await http.get(getApiUrl(username));
-        // this.getLogger().info(response);
-        // if (response.content && modify) {
-        //     const data = JSON.parse(response.content);
-        //     const message = await modify
-        //         .getCreator()
-        //         .startMessage()
-        //         .setRoom(context.room)
-        //         .setText(data.message);
+        const roomsStr = await read.getEnvironmentReader().getSettings().getValueById('welcome_rooms');
+        if (!roomsStr) {
+            return;
+        }
 
-        //     await modify.getCreator().finish(message);
-        // }
+        const rooms: string[] = roomsStr.split(',').map(room => room.trim());
+        if (!rooms.includes(context.room.slugifiedName)) {
+            return;
+        }
+
+        const username = context.joiningUser.username;
+        const response = await http.get(getApiUrl(username));
+        this.getLogger().log(response);
+        if (response.content && modify) {
+            const data = JSON.parse(response.content);
+            const message = await modify
+                .getCreator()
+                .startMessage()
+                .setRoom(context.room)
+                .setText(data.message);
+
+            await modify.getCreator().finish(message);
+        }
     }
 
     protected async extendConfiguration(configuration: IConfigurationExtend, environmentRead: IEnvironmentRead): Promise<void> {
-        // await configuration.slashCommands.provideSlashCommand(new GetInfo());
-        // await configuration.settings.provideSetting({
-        //     id: 'welcome_rooms',
-        //     type: SettingType.STRING,
-        //     packageValue: '',
-        //     required: false,
-        //     public: false,
-        //     i18nLabel: 'Allowed Rooms (Comma Separated)',
-        //     i18nDescription: 'Only welcome users in these rooms.',
-        // });
+        await configuration.slashCommands.provideSlashCommand(new GetInfo());
+        await configuration.settings.provideSetting({
+            id: 'welcome_rooms',
+            type: SettingType.STRING,
+            packageValue: '',
+            required: false,
+            public: false,
+            i18nLabel: 'Allowed Rooms (Comma Separated)',
+            i18nDescription: 'Only welcome users in these rooms.',
+        });
     }
 }
