@@ -58,6 +58,7 @@ npm run check-setup
 ```
 If everything is set up correctly you can see a message like this:
 ![Screenshot from 2024-02-13 23-41-08](https://github.com/abhinavkrin/app-workshop-welcome-bot/assets/15830206/0065d085-8b9c-408a-b5ac-4df7e85c430f)
+
 Visit the link and fill the form to confirm your seat. 🥳 
 
 ### Develop Your App: (During Workshop)
