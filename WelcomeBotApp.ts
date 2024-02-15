@@ -14,25 +14,55 @@ import { IPostRoomUserJoined, IRoomUserJoinedContext } from '@rocket.chat/apps-e
 import { GetInfo } from './slashcommands/GetInfo';
 import { SettingType } from '@rocket.chat/apps-engine/definition/settings';
 
-const getApiUrl = username => `https://welcome-gen-59cce07ae427.herokuapp.com/welcome/${username}`;
+const getApiUrl = () => "http://mistral-7b/v1/chat/completions";
+const getPayload = (name, userId) => {
+    const prompt = `Welcome New OpenSource Contributor named ${name} to RocketChat Community in few lines`;
+    const data = {
+        messages: [
+            {
+                role: "user",
+                content: prompt,
+                user: userId,
+            },
+        ],
+        model: "mistral",
+    };
+    const headers = {
+        "Content-Type": "application/json",
+    };
+
+    return {
+        data,
+        headers,
+    };
+};
 
 export class WelcomeBotApp extends App implements IPostRoomUserJoined {
     constructor(info: IAppInfo, logger: ILogger, accessors: IAppAccessors) {
         super(info, logger, accessors);
     }
     async executePostRoomUserJoined(context: IRoomUserJoinedContext, read: IRead, http: IHttp, persistence: IPersistence, modify?: IModify | undefined): Promise<void> {
-        // const username = context.joiningUser.username;
-        // const response = await http.get(getApiUrl(username));
-        // this.getLogger().info(response);
-        // if (response.content && modify) {
-        //     const data = JSON.parse(response.content);
-        //     const message = await modify
-        //         .getCreator()
-        //         .startMessage()
-        //         .setRoom(context.room)
-        //         .setText(data.message);
+        // const { name, id } = context.joiningUser;
+        // try {
+        //     const response = await http.post(getApiUrl(), getPayload(name, id));
 
-        //     await modify.getCreator().finish(message);
+        //     const welcomeMessage =
+        //         response?.data?.choices[0]?.message?.content ??
+        //         `Welcome ${name}! to RocketChat Let's make great things happen 🌟`;
+
+        //     this.getLogger().log(response);
+
+        //     if (modify) {
+        //         const message = await modify
+        //             .getCreator()
+        //             .startMessage()
+        //             .setRoom(context.room)
+        //             .setText(welcomeMessage);
+
+        //         await modify.getCreator().finish(message);
+        //     }
+        // } catch (err) {
+        //     this.getLogger().error("Error While User Joining!");
         // }
     }
 
