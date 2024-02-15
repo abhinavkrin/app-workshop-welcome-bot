@@ -19,7 +19,11 @@ import { SettingType } from "@rocket.chat/apps-engine/definition/settings";
 
 const getApiUrl = () => "http://mistral-7b/v1/chat/completions";
 const getPayload = (name, userId) => {
-    const prompt = `Welcome New OpenSource Contributor named ${name} to RocketChat Community with welcome message, don't include any twitter like hashtags,gsoc2024 is the channel is used for introduction, channels having initials as "idea" are google summer of code project ideas channel. Don't make message too long and instruct this contributor to change their username in form: "firstname.lastname".`;
+    const prompt = `Welcome New OpenSource Contributor named ${name} to RocketChat Community with welcome message,
+    don't include any twitter like hashtags,gsoc2024 is the channel is used for introduction, channels having initials 
+    as "idea" are google summer of code project ideas channel. Don't make message too long and instruct this contributor 
+    to change their username in form: "firstname.lastname".`;
+    
     const data = {
         messages: [
             {
