@@ -37,6 +37,17 @@ Before you begin, ensure you have the following:
    
    Replace `YOUR-UNIQUE-APP-ID` with the UUID you obtained. As a result each of you will have an app with unique app id.
 
+   Change `nameSlug` under app.json file to match with the name of your app. 
+    ```json
+    {
+        ...
+        name: "YournameWelcomeBot",
+        nameSlug: "yournamewelcomebot" 
+        ...
+    }
+    ```
+    Replace `Yourname` and `yourname` with your actual name without any sepcial character in `name` and `nameSlug` field respectively.
+ 
 4. **Edit `GetInfo.ts`**:
     Since, each slash command is unique, we cannot havemore than one slash command with same command string. Edit `slashCommands/GetInfo.ts`
     ```
