@@ -8,8 +8,8 @@
     "homepage": "NA",
     "support": "NA"
   },
-  "name": "WelcomeBot",
-  "nameSlug": "welcomebot",
+  "name": "YournameWelcomeBot",
+  "nameSlug": "yournamewelcomebot",
   "classFile": "WelcomeBotApp.ts",
   "description": "The demo app for new Rocketeers",
   "implements": [
